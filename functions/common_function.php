@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <?php
 // including database file
@@ -411,9 +413,12 @@ function cart()
 
         if ($num_of_rows > 0) {
             // Custom alert with styling
-            echo "<div class='custom-alert'>
-                      This item is already present inside the cart
-                  </div>";
+            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:84%";>
+          <strong>Error!</strong> This item already in cart
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>';
         } else {
             // Insert the product into the cart
             $insert_query = "INSERT INTO cart_details (product_id, ip_address, quantity) VALUES ($get_product_id, '$get_ip_add', 1)";
@@ -423,14 +428,17 @@ function cart()
                 die("Database query failed: " . mysqli_error($con));
             } else {
                 // Custom alert with styling
-                echo "<div class='custom-alert success'>
-                          Product was added to your cart
-                      </div>";
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert" style="width:84%";>
+          <strong>Success!</strong> Your Product added to the cart successfully!
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>';
             }
         }
 
         // Redirect to the index.php page after displaying the alert
-        echo "<script>window.open('index.php','_self')</script>";
+        // echo "<script>window.open('index.php','_self')</script>";
     }
 }
 
@@ -486,5 +494,16 @@ function total_cart_price()
     }
     echo $total_price;
 }
-?>
 
+
+
+?>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>

@@ -35,7 +35,12 @@ if (isset($_POST['user_login'])) {
             exit();
 
         } elseif ($row_count == 1 && $row_count_cart == 0) {
-            echo "<script>alert('Login successful');</script>";
+            echo '<div class="alert alert-success alert-dismissible fade show" role="alert" >
+          <strong>Error!</strong> Login successful
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>';
             header("Location: ../index.php");
             exit();
         } else {
@@ -44,7 +49,12 @@ if (isset($_POST['user_login'])) {
             exit();
         }
     } else {
-        echo "<script>alert('Invalid credentials');</script>";
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert" >
+          <strong>Error!</strong> Invalid username/password !
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>';
     }
 }
 

@@ -93,7 +93,12 @@ if (isset($_POST['user_login'])) {
             exit();
         }
     } else {
-        echo "<script>alert('Invalid credentials');</script>";
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert" >
+          <strong>Error!</strong> Invalid username/password !
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>';
     }
 }
 
@@ -112,6 +117,8 @@ if (isset($_POST['user_login'])) {
     <title>Food ordering-Checkout page</title>
     <!-- css file -->
     <link rel="stylesheet" href="../style.css">
+
+
     <link rel="stylesheet" href="../bootstrap.css">
 
     <style>
@@ -346,7 +353,7 @@ if (isset($_POST['user_login'])) {
 
 
                     </ul>
-                
+
                 </div>
             </div>
         </nav>
